@@ -1,2 +1,2 @@
 # agamemnon
-Accurate metagenomic/metatranscriptomic analysis pipeline
+Accurate Metagenomic/Metatranscriptomic analysis pipeline
