@@ -1,0 +1,30 @@
+##############################################################################
+########### Quantification of Microbial fragments using Pufferfish ###########
+##############################################################################
+
+rule mapping:
+	input:
+		M1 = "results/{sample}/phix/un-conc-mate.1.fq.gz" if config["MODE"] == "2" \
+			else "%s/{sample}_1%s" % (config["SAMPLES_DIR"], config["FILES_EXT"]),
+		M2 = "results/{sample}/phix/un-conc-mate.2.fq.gz" if config["MODE"] == "2" \
+			else "%s/{sample}_2%s" % (config["SAMPLES_DIR"], config["FILES_EXT"])
+	params:
+		pufferfish_idx = config["PUFFERFISH_INDEX"],
+		outDir = "results/{sample}/pufferfish/mappings.pam",
+		path = "%s/pufferfish-latest_linux_x86_64/bin" % (config["BINARIES"])
+	output:
+		puff_mappings = "results/{sample}/pufferfish/mappings.pam"
+	log:
+		"results/{sample}/logs/pufferfish_mapping.log"
+	threads:
+		config["TPS"]
+	resources:
+		mem_mb=40000
+	message:
+		"*** [Mapping of microbial fragments... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		{params.path}/./pufferfish align -i {params.pufferfish_idx} --mate1 {input.M1} --mate2 {input.M2} -p {threads} -m -s -o {params.outDir} 2> {log}
+		"""
+
+

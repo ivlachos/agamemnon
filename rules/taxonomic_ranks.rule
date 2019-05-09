@@ -1,0 +1,23 @@
+##############################################################################
+######################### Taxonomic ranks calculation ########################
+##############################################################################
+
+
+rule taxonomic_ranks:
+	input:
+		quantFile = "results/{sample}/salmon/quant.sf",
+		acc2taxid = "%s/accessionsTaxIDs.tab" % (config["TAXONOMY_FILE"])
+	params:
+		taxonomy = config["TAXONOMY_FILE"],
+		scriptsDir = config["SCRIPTS"],
+		outDir = "results/{sample}/taxonomic_ranks",
+		algorithm = config["ALGORITHM"]
+	output:
+		out = "results/{sample}/taxonomic_ranks/results.tab",
+		noMatch = "results/{sample}/taxonomic_ranks/noMatch.tab"
+	message:
+		"*** [Calculating Taxonomic ranks... | Threads: 1] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		{params.scriptsDir}/./taxonomicRanks.py -qf {input.quantFile} -tfd {params.taxonomy} -al {params.algorithm} -od {params.outDir}
+		"""

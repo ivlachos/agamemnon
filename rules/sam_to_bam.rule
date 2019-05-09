@@ -1,0 +1,20 @@
+##############################################################################
+####################### Host SAM to BAM using samtools #######################
+##############################################################################
+
+if config["MODE"] == 2 and config["TOBAM"] == 1:
+	rule sam_to_bam:
+		input:
+			sam_file = "results/{sample}/host/{sample}.sam"
+		output:
+			bam_file = "results/{sample}/host/{sample}.bam"
+		log:
+			"results/{sample}/logs/samtools.log"
+		message:
+			"*** [Converting SAM to BAM... | Threads: 1] - %s\n" % (str(time.strftime("%H:%M:%S")))
+		shell:
+			"""
+			samtools view -Sb {input.sam_file} > {output.bam_file} 2> {log}
+			rm {input.sam_file}
+			"""
+

@@ -1,0 +1,28 @@
+##############################################################################
+######################## Host filtering using HISAT2 #########################
+##############################################################################
+
+
+if config["MODE"] == "2":
+	rule host_filteringSE:
+		input:
+			M = "%s/{sample}%s" % (config["SAMPLES_DIR"], config["FILES_EXT"])
+		params:
+			host_idx = config["HOST_INDEX"],
+			un_out = "results/{sample}/host",
+			path = "%s/hisat2-2.1.0" % (config["BINARIES"])
+		output:
+			sam = "results/{sample}/host/{sample}.sam" if config["HOST_SAM"] == 1 \
+				else temp("results/{sample}/host/{sample}.sam"),
+			unmapped = "results/{sample}/host/un-seqs.fq.gz"
+		log:
+			"results/{sample}/logs/hisat2_host.log"
+		threads:
+			config["TPS"]
+		message:
+			"*** [Host filtering... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+		shell:
+			"""
+			{params.path}/./hisat2 -q -x {params.host_idx} --un-gz {params.un_out} -p {threads} -U {input.M} -S {output.sam} 2> {log}
+			mv {params.un_out}/un-seqs {params.un_out}/un-seqs.fq.gz
+			"""

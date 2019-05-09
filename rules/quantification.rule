@@ -1,0 +1,35 @@
+##############################################################################
+############# Quantification of Microbial fragments using Salmon #############
+##############################################################################
+
+rule microbial_quantification:
+	input:
+		puffOut = "results/{sample}/pufferfish/mappings.pam"
+	params:
+		index = "none",
+		libtype = config["LIBTYPE"],
+		outDir = "results/{sample}/salmon",
+		path = "%s/salmon-latest_linux_x86_64/bin" % (config["BINARIES"])
+	output:
+		cmdInfo = "results/{sample}/salmon/cmd_info.json",
+		libFormatCounts = "results/{sample}/salmon/lib_format_counts.json",
+		quant = "results/{sample}/salmon/quant.sf",
+		ambigInfo = "results/{sample}/salmon/aux_info/ambig_info.tsv",
+		expectedBias = "results/{sample}/salmon/aux_info/expected_bias.gz",
+		fld = "results/{sample}/salmon/aux_info/fld.gz",
+		metainfo = "results/{sample}/salmon/aux_info/meta_info.json",
+		observedBias = "results/{sample}/salmon/aux_info/observed_bias.gz",
+		observedBias3p = "results/{sample}/salmon/aux_info/observed_bias_3p.gz",
+		flenDist = "results/{sample}/salmon/libParams/flenDist.txt",
+		salmonQuant = "results/{sample}/salmon/logs/salmon_quant.log",
+	log:
+		"results/{sample}/logs/salmon_quantification.log"
+	threads:
+		config["TPS"]
+	message:
+		"*** [Quantification of microbial fragments... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		{params.path}/./salmon quant -i {params.index} -l {params.libtype} --meta -p {threads} --minAssignedFrags 1 -r {input.puffOut} -o {params.outDir} 2> {log}
+		"""
+

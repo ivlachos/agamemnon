@@ -1,0 +1,25 @@
+##############################################################################
+############################# Accessions to TaxIDs ###########################
+##############################################################################
+
+
+rule accessions2TaxIDs:
+	input:
+		gb = "%s/nucl_gb.accession2taxid" % (config["TAXONOMY_FILE"]),
+		wgs = "%s/nucl_wgs.accession2taxid" % (config["TAXONOMY_FILE"]),
+		gss = "%s/nucl_gss.accession2taxid" % (config["TAXONOMY_FILE"]),
+		dead_nucl = "%s/dead_nucl.accession2taxid" % (config["TAXONOMY_FILE"]),
+		dead_wgs = "%s/dead_wgs.accession2taxid" % (config["TAXONOMY_FILE"]),
+		rankedlineage = "%s/rankedlineage.dmp" % (config["TAXONOMY_FILE"])
+	params:
+		scriptsDir = config["SCRIPTS"],
+		taxonomyDir = config["TAXONOMY_FILE"],
+		reference = config["REFERENCE_FASTA"]
+	output:
+		acc2taxid = "%s/accessionsTaxIDs.tab" % (config["TAXONOMY_FILE"])
+	message:
+		"*** [Mapping Accession Numbers to TaxIDs... | Threads: 1] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		bash {params.scriptsDir}/accession2TaxID.sh {params.reference} {params.taxonomyDir}
+		"""
