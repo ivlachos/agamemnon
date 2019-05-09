@@ -1,0 +1,98 @@
+##############################################################################
+############################## AGAMEMNON-v0.1.0 ##############################
+##############################################################################
+
+configfile: "configs/config.yml"
+from os import listdir
+import time
+import sys
+import glob
+
+
+onstart:
+	print("[Checking the configuration file... ]\n")
+	shell("%s/./configurationCheck.py -cd configs/config.yml -od ." % (config["SCRIPTS"]))
+	with open("./configuration_file.report") as f:
+		signal = f.read().splitlines()
+	if signal[-1].strip() == 'True':
+		sys.exit("\n\nExecution of AGAMEMNON stopped.\nCheck the configuration_file.report for Errors.\n\n")
+	else:
+		shell("rm ./configuration_file.report")
+
+
+if config["STRATEGY"] == "PE":
+	include: "rules/host_filtering.rule"
+	include: "rules/phix_filtering.rule"
+	include: "rules/mappings.rule"
+else:
+	include: "rules/host_filteringSE.rule"
+	include: "rules/phix_filteringSE.rule"
+	include: "rules/mappingsSE.rule"
+
+if config["TO_BAM"].lower() == "true":
+	include: "rules/sam_to_bam.rule"
+
+
+include: "rules/accessions2TaxIDs.rule"
+include: "rules/taxonomic_ranks.rule"
+include: "rules/move_results.rule"
+include: "rules/quantification.rule"
+
+
+def getSampleNames(samples_dir):
+	ftypes = ('*.fq', '*.fastq', '*.fq.gz', '*.fastq.gz', '*.fasta')
+	samples = list()
+	for files in ftypes:
+		samples.extend(glob.glob(os.path.join(config["SAMPLES_DIR"], files)))
+	if config["STRATEGY"] == "PE":
+		return list(set([f.rsplit("/", 1)[1].rsplit(".", 1)[0].rsplit("_", 1)[0] for f in samples]))
+	else:
+		return list(set([f.rsplit(".", 1)[0] for f in os.listdir(samples_dir)]))
+
+
+def startMessage(samplesNum):
+	print("\n\n***************** [AGAMEMNON-v0.1.0] *****************\n")
+	print("[Started execution of AGAMEMNON in %s mode]" % (config["STRATEGY"]))
+	print("[Number of samples: %d]" % (samplesNum))
+	print("[Number of threads per sample: %d]" % (config["TPS"]))
+	print("[Mode: %s]\n\n" % (config["MODE"]))
+	print("******************************************************\n\n")
+	time.sleep(1)
+
+
+def clearAll(samples):
+	for i in range (0, len(samples)):
+		if config["MODE"] == "2":
+			shell("rm -r results/%s/phix" % (samples[i]))
+			if config["STRATEGY"] == "PE":
+				shell("rm results/%s/host/un-conc-mate.1.fq.gz" % (samples[i]))
+				shell("rm results/%s/host/un-conc-mate.2.fq.gz" % (samples[i]))
+			else:
+				shell("rm results/%s/host/un-seqs.fq.gz" % (samples[i]))
+		shell("rm -r results/%s/salmon" % (samples[i]))
+		shell("rm -r results/%s/pufferfish" % (samples[i]))
+
+
+SAMPLES = getSampleNames(config["SAMPLES_DIR"])
+startMessage(len(SAMPLES))
+
+
+if config["MODE"] == "2" and config["TO_BAM"].lower() == "true":
+	rule all:
+		input:
+			expand("results/{sample}/taxonomic_ranks/results.tab", sample = SAMPLES),
+			expand("results/final/all/{sample}.tab", sample = SAMPLES),
+			expand("results/{sample}/host/{sample}.bam", sample = SAMPLES)
+else:
+	rule all:
+		input:
+			expand("results/{sample}/taxonomic_ranks/results.tab", sample = SAMPLES),
+			expand("results/final/all/{sample}.tab", sample = SAMPLES)
+
+onsuccess:
+	if config["CLEAR_ALL"].lower() == "true":
+		clearAll(SAMPLES)
+	print("*** [Done - %s]\n" % (str(time.strftime("%H:%M:%S"))))
+
+
+
