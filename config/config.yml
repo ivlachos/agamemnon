@@ -1,0 +1,29 @@
+###################################################################################################
+############################### AGAMEMNON-v0.1.1 configuration file ###############################
+###################################################################################################
+
+CONFIG_DIR: "."
+MODE: "1"
+TPS: 18
+STRATEGY: "PE"
+
+
+SAMPLES_DIR: "/mnt/raid1/skouf/projects/AGAMEMNON/cedar.shared/datasets/simulated.dataset.C/samples/c"
+FILES_EXT: ".fq"
+RESULTS: "../AGAMEMNON-v0.1.1/results"
+TAXONOMY_FILE: "../AGAMEMNON-v0.1.1/Taxonomy"
+SCRIPTS: "../AGAMEMNON-v0.1.1/scripts"
+BINARIES: "../AGAMEMNON-v0.1.1/binaries"
+ALGORITHM: "agamemnon"
+
+
+REFERENCE_FASTA: "/mnt/raid1/skouf/projects/refs.cedar.salmon/ncbi.all.complete.sim.a.b.c.fa"
+PUFFERFISH_INDEX: "/mnt/raid1/skouf/projects/AGAMEMNON/cedar.shared/indices/ncbi.all.complete.sim.a.b.c/ncbi.all.complete.sim.a.b.c_31_fixed.puffidx"
+HOST_INDEX: "/mnt/raid1/skouf/projects/AGAMEMNON/hisat_indices/phix/phix"
+CONTROL_INDEX: "/mnt/raid1/skouf/projects/AGAMEMNON/hisat_indices/phix/phix"
+
+
+LIBTYPE: "A"
+HOST_SAM: "False"
+TO_BAM: "False"
+CLEAR_ALL: "False"
