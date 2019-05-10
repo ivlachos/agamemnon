@@ -38,7 +38,7 @@ def fixEmptyranks(lineage):
 	ranks = ['species', 'genus', 'family', 'order', 'class', 'phylum', 'superkingdom']
 	for key in lineage:
 		if 'genus|Thermobaculum|262406' in lineage[key]:
-			print lineage[key]
+			print(lineage[key])
 		ranks_Found = list()
 		if len(lineage[key]) == 8:
 			continue
