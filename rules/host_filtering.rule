@@ -14,7 +14,7 @@ if config["parameters"]["MODE"] == "2":
 			path = "%s/hisat2-2.1.0" % (config["directories"]["BINARIES"]),
 			spliced = '' if config["parameters"]["TYPE"] == 'RNA' else '--no-spliced-alignment'
 		output:
-			sam = "results/{sample}/host/{sample}.sam" if config["parameters"]["HOST_SAM"] == 1 \
+			sam = "results/{sample}/host/{sample}.sam" if config["parameters"]["HOST_SAM"] == "True" \
 				else temp("results/{sample}/host/{sample}.sam"),
 			unmapped1 = "results/{sample}/host/un-conc-mate.1.fq.gz",
 			unmapped2 = "results/{sample}/host/un-conc-mate.2.fq.gz"
