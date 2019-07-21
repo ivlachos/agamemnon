@@ -1,2 +1,2 @@
-# agamemnon
-Accurate metagenomic/metatranscriptomic analysis pipeline
+# AGAMEMNON
+Accurate metaGenomics And MEtatranscriptoMics quaNtificatiON analysis suite 
