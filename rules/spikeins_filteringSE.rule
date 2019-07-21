@@ -1,0 +1,28 @@
+##############################################################################
+###################### SpikeIns filtering using HISAT2 #######################
+##############################################################################
+
+
+if config["parameters"]["MODE"] == "2":
+	rule spikeins_filteringSE:
+		input:
+			M = "results/{sample}/host/un-seqs.fq.gz"
+		params:
+			spikeins_idx = config["directories"]["CONTROL_INDEX"],
+			un_out = "results/{sample}/spikeins",
+			path = "%s/hisat2-2.1.0" % (config["directories"]["BINARIES"]),
+			spliced = '' if config["parameters"]["TYPE"] == 'RNA' else '--no-spliced-alignment'
+		output:
+			sam = temp("results/{sample}/spikeins/{sample}.sam"),
+			unmapped = "results/{sample}/spikeins/un-seqs.fq.gz"
+		log:
+			"results/{sample}/logs/hisat2_spikeins.log"
+		threads:
+			config["resources"]["TPS"]
+		message:
+			"*** [SpikeIns filtering... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+		shell:
+			"""
+			{params.path}/hisat2 -q -x {params.spikeins_idx} --un-gz {params.un_out} {params.spliced} -p {threads} -U {input.M} -S {output.sam} 2> {log}
+			mv {params.un_out}/un-seqs {params.un_out}/un-seqs.fq.gz
+			"""

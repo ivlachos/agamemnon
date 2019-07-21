@@ -1,0 +1,30 @@
+##############################################################################
+############### Mapping of Microbial fragments using Pufferfish ##############
+##############################################################################
+
+rule mapping:
+	input:
+		M1 = "results/{sample}/spikeins/un-conc-mate.1.fq.gz" if config["parameters"]["MODE"] == "2" \
+			else "%s/{sample}_1%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"]),
+		M2 = "results/{sample}/spikeins/un-conc-mate.2.fq.gz" if config["parameters"]["MODE"] == "2" \
+			else "%s/{sample}_2%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"])
+	params:
+		pufferfish_idx = config["directories"]["PUFFERFISH_INDEX"],
+		outDir = "results/{sample}/pufferfish/mappings.pam",
+		path = "%s/pufferfish/build/src" % (config["directories"]["BINARIES"])
+	output:
+		puff_mappings = "results/{sample}/pufferfish/mappings.pam"
+	log:
+		"results/{sample}/logs/pufferfish_mapping.log"
+	threads:
+		config["resources"]["TPS"]
+	resources:
+		mem_mb=config["resources"]["MEM_MB"]
+	message:
+		"*** [Mapping of microbial fragments... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		{params.path}/./pufferfish align -i {params.pufferfish_idx} --mate1 {input.M1} --mate2 {input.M2} -p {threads} -s --scoreRatio 0.5 -o {params.outDir} 2> {log}
+		"""
+
+
