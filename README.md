@@ -1,2 +1,5 @@
 # AGAMEMNON
-Accurate metaGenomics And MEtatranscriptoMics quaNtificatiON analysis suite 
+AGAMEMNON version 0.1.0
+
+# What is AGAMEMNON?
+AGAMEMNON is 
