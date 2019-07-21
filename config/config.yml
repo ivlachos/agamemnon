@@ -1,0 +1,22 @@
+directories:
+  BINARIES: 
+  CONFIG_DIR: .
+  CONTROL_INDEX: 
+  HOST_INDEX: 
+  INDEX_FASTQ: NA
+  PUFFERFISH_INDEX: 
+  RESULTS: 
+  SAMPLES_DIR: 
+  SCRIPTS: 
+  TAXONOMY_FILE: 
+parameters:
+  ALGORITHM: agamemnon
+  CLEAR_ALL: 'False'
+  FILES_EXT: 
+  HOST_SAM: 'False'
+  MODE: '1'
+  STRATEGY: PE
+  TYPE: RNA
+resources:
+  MEM_MB: 1
+  TPS: 8
