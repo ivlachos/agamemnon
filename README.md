@@ -106,3 +106,6 @@ In the above command, "AGAMEMNON" is the snakemake file in the ../agamemnon/ dir
 
 Using the parameters "--cores", "mem_mb" and "TPS" (in the config.yml) file, AGAMEMNON will make the best out of the available resources.</br>
 
+If you want to display what would be done but not actually execute AGAMEMNON, Snakemake gives the option **--dryrun** which prints a summary of the DAG of jobs (without really executing any job). This is useful in cases where a user has a large number of samples to analyse and wants to be sure that everything is set up properly.</br>
+
+
