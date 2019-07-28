@@ -17,5 +17,5 @@ To build an index, you need a multi-FASTA file containing microbial/viral genome
 For example:</br>
 `>NC_013791.2 Bacillus pseudofirmus OF4, complete genome`</br>
 `>NC_004061.1 Buchnera aphidicola str. Sg (Schizaphis graminum), complete genome`</br>
-`>NC_002977.6 Methylococcus capsulatus str. Bath, complete genome`</br></br>s
+`>NC_002977.6 Methylococcus capsulatus str. Bath, complete genome`</br></br>
 The headers above, are all valid.
