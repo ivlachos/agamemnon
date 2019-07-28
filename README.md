@@ -80,7 +80,7 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 | CLEAR_ALL | Whether to clear everything except quantification results ("True") or not "False" - default: "True" |
 | FILES_EXT | Samples files extension, i.e. .fq, .fastq etc - default: ".fq" |
 | HOST_SAM | Whether to keep the SAM files produced by aligning reads with HISAT2 against host's genome/transcriptome ("True") or not ("False") - default: "False"|
-| MODE | Mode in which AGAMEMNON will be executed - "1"  |
+| MODE | Mode in which AGAMEMNON will be executed ("1" or "2") - default: "1"  |
 | STRATEGY | "PE" for paired-end samples or "SE" for single-end samples |
 | TYPE | "RNA" or "DNA", if "DNA" is selected, HISAT2 will be executed with the parameter --no-spliced-alignment |
 | MEM_MB | Default: 1 (do not edit) |
@@ -88,7 +88,8 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 
 **MODE 1:** Quantification of microbial genomes in **Shotgun Metagenomics/Metatranscriptomics** NGS samples.</br>
 
-<p align="justify">In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes in Shotgun Metagenomics/Metatranscriptomics samples and thus, some of the config.yml parameters (CONTROL_INDEX, HOST_INDEX, INDEX_FASTQ, HOST_SAM, TYPE) are not mandatory for the execution of the pipeline. You can leave the default "NA" value. Even if you set a different value, it wont make any difference in the execution process.</p></br>
+<p align="justify">In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes in Shotgun Metagenomics/Metatranscriptomics samples and thus, the parameters CONTROL_INDEX, HOST_INDEX, INDEX_FASTQ, HOST_SAM and TYPE are not mandatory for the execution of the pipeline. You can leave the default "NA" value on them. Even if you set a different value, it wont make any difference in the execution process.</p></br>
 
 **MODE 2:** Quantification of microbial genomes in **host-specific RNA/DNA** NGS samples.</br>
 
+<p align="justify">In MODE 2, at first, AGAMEMNON will align the sequencing reads against the host's genome/transcriptome using HISAT2, then against the selected control index (default: phix genome) and finally it will quantify the abundances of microbial genomes in the remaining (unmapped) reads.</p></br>
