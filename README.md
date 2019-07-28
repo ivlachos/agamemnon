@@ -66,25 +66,25 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 
 | Parameters | Description |
 | :--- | :--- |
-| BINARIES | edit |
-| CONFIG_DIR | edit) |
-| CONTROL_INDEX | edit) |
-| HOST_INDEX | edit) |
-| INDEX_FASTQ | edit) |
-| PUFFERFISH_INDEX | edit) |
-| RESULTS | edit) |
-| SAMPLES_DIR | edit) |
-| SCRIPTS | edit) |
-| TAXONOMY_FILE | edit) |
-| ALGORITHM | edit) |
-| CLEAR_ALL | edit) |
-| FILES_EXT | edit) |
-| HOST_SAM | edit) |
-| MODE | edit) |
-| STRATEGY | edit) |
-| TYPE | edit) |
-| MEM_MB | edit) |
-| TPS | edit) |</br>
+| BINARIES | binary folder directory (default: ../agamemnon-master/binaries) |
+| CONFIG_DIR | a directory used internally by snakemake (default '.' - current directory) |
+| CONTROL_INDEX | directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: phix) |
+| HOST_INDEX | directory of the HISAT2 host index, i.e. human, mouse etc. |
+| INDEX_FASTQ | directory of the index fastq file (for droplet-based single-cell samples only) |
+| PUFFERFISH_INDEX | directory of the pufferfish index) |
+| RESULTS | directory of the results |
+| SAMPLES_DIR | directory of samples |
+| SCRIPTS | directory of scripts |
+| TAXONOMY_FILE | directory of NCBI taxonomy files |
+| ALGORITHM | default: "agamemnon" (do not edit) |
+| CLEAR_ALL | whether to clear everything except quantification results ("True") or not "False" - default: "True" |
+| FILES_EXT | sample files extension, i.e. .fq, .fastq etc. - default: .fq |
+| HOST_SAM | whether to keep the SAM files produced by aligning reads with HISAT2 against host's genome/transcriptome ("True") or not ("False") - default: "False"|
+| MODE | mode in which AGAMEMNON will be executed - "1"  |
+| STRATEGY | "PE" for paired-end samples or "SE" for single-end samples |
+| TYPE | "RNA" or "DNA", if "DNA" is selected, HISAT2 will be executed with the parameter --no-spliced-alignment |
+| MEM_MB | default: 1 (do not edit) |
+| TPS | number of threads to be used **per sample** - default: 8 |</br>
 
 **MODE 1:** Quantification of microbial genomes in Metagenomics/Metatranscriptomics NGS samples.</br>
 
