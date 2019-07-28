@@ -6,17 +6,17 @@
 if config["parameters"]["MODE"] == "2":
 	rule spikeins_filteringSE:
 		input:
-			M = "results/{sample}/host/un-seqs.fq.gz"
+			M = "%s/{sample}/host/un-seqs.fq.gz" % (config["directories"]["RESULTS"])
 		params:
 			spikeins_idx = config["directories"]["CONTROL_INDEX"],
-			un_out = "results/{sample}/spikeins",
+			un_out = "%s/{sample}/spikeins" % (config["directories"]["RESULTS"]),
 			path = "%s/hisat2-2.1.0" % (config["directories"]["BINARIES"]),
 			spliced = '' if config["parameters"]["TYPE"] == 'RNA' else '--no-spliced-alignment'
 		output:
-			sam = temp("results/{sample}/spikeins/{sample}.sam"),
-			unmapped = "results/{sample}/spikeins/un-seqs.fq.gz"
+			sam = temp("%s/{sample}/spikeins/{sample}.sam") % (config["directories"]["RESULTS"]),
+			unmapped = "%s/{sample}/spikeins/un-seqs.fq.gz" % (config["directories"]["RESULTS"])
 		log:
-			"results/{sample}/logs/hisat2_spikeins.log"
+			"%s/{sample}/logs/hisat2_spikeins.log" % (config["directories"]["RESULTS"])
 		threads:
 			config["resources"]["TPS"]
 		message:
