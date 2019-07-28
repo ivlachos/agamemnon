@@ -6,19 +6,19 @@
 if config["parameters"]["MODE"] == "2":
 	rule spikeins_filtering:
 		input:
-			M1 = "results/{sample}/host/un-conc-mate.1.fq.gz",
-			M2 = "results/{sample}/host/un-conc-mate.2.fq.gz"
+			M1 = "%s/{sample}/host/un-conc-mate.1.fq.gz" % (config["directories"]["RESULTS"]),
+			M2 = "%s/{sample}/host/un-conc-mate.2.fq.gz" % (config["directories"]["RESULTS"])
 		params:
 			spikeins_idx = config["directories"]["CONTROL_INDEX"],
-			un_out = "results/{sample}/spikeins",
+			un_out = "%s/{sample}/spikeins" % (config["directories"]["RESULTS"]),
 			path = "%s/hisat2-2.1.0" % (config["directories"]["BINARIES"]),
 			spliced = '' if config["parameters"]["TYPE"] == 'RNA' else '--no-spliced-alignment'
 		output:
-			sam = temp("results/{sample}/spikeins/{sample}.sam"),
-			unmapped1 = "results/{sample}/spikeins/un-conc-mate.1.fq.gz",
-			unmapped2 = "results/{sample}/spikeins/un-conc-mate.2.fq.gz"
+			sam = temp("%s/{sample}/spikeins/{sample}.sam" % (config["directories"]["RESULTS"])),
+			unmapped1 = "%s/{sample}/spikeins/un-conc-mate.1.fq.gz" % (config["directories"]["RESULTS"]),
+			unmapped2 = "%s/{sample}/spikeins/un-conc-mate.2.fq.gz" % (config["directories"]["RESULTS"])
 		log:
-			"results/{sample}/logs/hisat2_spikeins.log"
+			"%s/{sample}/logs/hisat2_spikeins.log" % (config["directories"]["RESULTS"])
 		threads:
 			config["resources"]["TPS"]
 		message:
