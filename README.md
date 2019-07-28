@@ -32,7 +32,9 @@ To start building an index, first navigate to the **../binaries/pufferfish/** di
 | output_dir | Output directory to write the index |
 | tmp_dir | Temporary folder to use while building the index (has to exist) |
 | num_of_threads | Number of threads to use while building the index |
-| twopaco_filter_size_microbiome | defualt: 37 (do not change) |
-| twopaco_filter_size_humangenome | defualt: 36 (irrelevant for AGAMEMNON) |
-| twopaco_filter_size_humantxome | defualt: 30 (irrelevant for AGAMEMNON) |
-| twopaco_filter_size | defualt: 37 (do not change) |
+| twopaco_filter_size_microbiome | default: 37 (do not change) |
+| twopaco_filter_size_humangenome | default: 36 (irrelevant for AGAMEMNON) |
+| twopaco_filter_size_humantxome | default: 30 (irrelevant for AGAMEMNON) |
+| twopaco_filter_size | default: 37 (do not change) |</br></br>
+Fill the values above, save the config.json file and start building an index using the following command:</br></br>
+**bash index.sh config.json**</br></br>
