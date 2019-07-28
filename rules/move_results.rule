@@ -5,9 +5,9 @@
 
 rule move_results:
 	input:
-		inFile = "results/{sample}/taxonomic_ranks/results.tab"
+		inFile = "%s/{sample}/taxonomic_ranks/results.tab" % (config["directories"]["RESULTS"])
 	output:
-		outFile = "results/final/all/{sample}.tab"
+		outFile = "%s/final/all/{sample}.tab" % (config["directories"]["RESULTS"])
 	message:
 		"*** [Moving out.tab files to a common folder... ] - %s\n" % (str(time.strftime("%H:%M:%S")))
 	shell:
