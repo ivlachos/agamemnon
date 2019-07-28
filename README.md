@@ -67,18 +67,18 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 | Parameters | Description |
 | :--- | :--- |
 | BINARIES | Binary folder directory (default: ../agamemnon-master/binaries) |
-| CONFIG_DIR | A directory used internally by snakemake (default '.' - current directory) |
+| CONFIG_DIR | A directory used internally by snakemake (default "." - current directory) |
 | CONTROL_INDEX | Directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: phix) |
 | HOST_INDEX | Directory of the HISAT2 host index, i.e. human, mouse etc. |
 | INDEX_FASTQ | Directory of the index fastq file (for droplet-based single-cell samples only) |
 | PUFFERFISH_INDEX | Directory of the pufferfish index) |
-| RESULTS | Directory of the results |
-| SAMPLES_DIR | Directory of samples |
+| RESULTS | Directory to write the results |
+| SAMPLES_DIR | Directory of NGS samples |
 | SCRIPTS | Directory of scripts |
-| TAXONOMY_FILE | Directory of NCBI taxonomy files |
+| TAXONOMY_FILE | Directory of the NCBI taxonomy files |
 | ALGORITHM | Default: "agamemnon" (do not edit) |
 | CLEAR_ALL | Whether to clear everything except quantification results ("True") or not "False" - default: "True" |
-| FILES_EXT | Sample files extension, i.e. .fq, .fastq etc. - default: .fq |
+| FILES_EXT | Samples files extension, i.e. .fq, .fastq etc - default: ".fq" |
 | HOST_SAM | Whether to keep the SAM files produced by aligning reads with HISAT2 against host's genome/transcriptome ("True") or not ("False") - default: "False"|
 | MODE | Mode in which AGAMEMNON will be executed - "1"  |
 | STRATEGY | "PE" for paired-end samples or "SE" for single-end samples |
@@ -86,6 +86,9 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 | MEM_MB | Default: 1 (do not edit) |
 | TPS | Number of threads to be used **per sample** - default: 8 |</br>
 
-**MODE 1:** Quantification of microbial genomes in Metagenomics/Metatranscriptomics NGS samples.</br>
+**MODE 1:** Quantification of microbial genomes in **Shotgun Metagenomics/Metatranscriptomics** NGS samples.</br>
 
+In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes in Shotgun Metagenomics/Metatranscriptomics samples and thus, some of the **config.yml** parameters (CONTROL_INDEX, HOST_INDEX, INDEX_FASTQ, HOST_SAM, TYPE) are not mandatory for the execution of the pipeline. You can leave the default "NA" value. Even if you set a different value, it wont make any difference in the execution process.</br>
+
+**MODE 2:** Quantification of microbial genomes in **host-specific RNA/DNA** NGS samples.</br>
 
