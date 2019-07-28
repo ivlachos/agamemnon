@@ -111,4 +111,5 @@ Using the parameters "--cores", "mem_mb" and "TPS" (in the config.yml) file, AGA
 
 If you want to display what would be done but not actually execute AGAMEMNON, Snakemake gives the option **--dryrun** which prints a summary of the DAG of jobs (without really executing any job). This is useful in cases where a user has a large number of samples to analyse and wants to be sure that everything is set up properly.</br>
 
+After the execution of AGAMEMNON is finished, the results folder will contain the "../final/all" directory with a tab-delimited results file for every sample analysed, containing the microbial abundances together with their full lineage. The results folder will also contain a folder for every sample, containing log files and if the value of "CLEAR_ALL" was setted to "False", it will also contain the **mappings.pam** file produced by Pufferfish and the **quant.sf**. If AGAMEMNON was executed in MODE 2 and with the "HOST_SAM" parameter setted to "True", the results folder will also contain the SAM files produced by HISAT2.</br>
 
