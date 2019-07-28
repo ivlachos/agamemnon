@@ -55,14 +55,14 @@ def startMessage(samplesNum):
 def clearAll(samples):
 	for i in range (0, len(samples)):
 		if config["parameters"]["MODE"] == "2":
-			shell("rm -r results/%s/spikeins" % (samples[i]))
+			shell("rm -r %s/%s/spikeins" % (config["directories"]["RESULTS"], samples[i]))
 			if config["parameters"]["STRATEGY"] == "PE":
-				shell("rm results/%s/host/un-conc-mate.1.fq.gz" % (samples[i]))
-				shell("rm results/%s/host/un-conc-mate.2.fq.gz" % (samples[i]))
+				shell("rm %s/%s/host/un-conc-mate.1.fq.gz" % (config["directories"]["RESULTS"], samples[i]))
+				shell("rm %s/%s/host/un-conc-mate.2.fq.gz" % (config["directories"]["RESULTS"], samples[i]))
 			else:
-				shell("rm results/%s/host/un-seqs.fq.gz" % (samples[i]))
-		shell("rm -r results/%s/cedar" % (samples[i]))
-		shell("rm -r results/%s/pufferfish" % (samples[i]))
+				shell("rm %s/%s/host/un-seqs.fq.gz" % (config["directories"]["RESULTS"], samples[i]))
+		shell("rm -r %s/%s/cedar" % (config["directories"]["RESULTS"], samples[i]))
+		shell("rm -r %s/%s/pufferfish" % (config["directories"]["RESULTS"], samples[i]))
 
 
 SAMPLES = getSampleNames(config["directories"]["SAMPLES_DIR"])
@@ -71,8 +71,8 @@ startMessage(len(SAMPLES))
 
 rule all:
 	input:
-		expand("results/{sample}/taxonomic_ranks/results.tab", sample = SAMPLES),
-		expand("results/final/all/{sample}.tab", sample = SAMPLES)
+		expand("{results}/{sample}/taxonomic_ranks/results.tab", results = config["directories"]["RESULTS"], sample = SAMPLES),
+		expand("{results}/final/all/{sample}.tab", config["directories"]["RESULTS"], sample = SAMPLES)
 
 onsuccess:
 	if config["parameters"]["CLEAR_ALL"].lower() == "true":
