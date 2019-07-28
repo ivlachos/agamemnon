@@ -90,7 +90,7 @@ RUN wget http://ccb.jhu.edu/software/hisat2/dl/hisat2-2.1.0-Linux_x86_64.zip && 
 ### AGAMEMNON github repo ###
 RUN mkdir AGAMEMNON && \
 	cd AGAMEMNON && \
-	git clone https://gskoufos:Giorgos1989!!@github.com/gskoufos/agamemnon.git && \
+	git clone  && \
 	cd agamemnon && \
 	git checkout develop && \
 	cp -a /home/AGAMEMNON/agamemnon/. /home/AGAMEMNON/ && \
