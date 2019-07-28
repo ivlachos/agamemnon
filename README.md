@@ -18,4 +18,4 @@ For example:</br>
 `>NC_013791.2 Bacillus pseudofirmus OF4, complete genome`</br>
 `>NC_004061.1 Buchnera aphidicola str. Sg (Schizaphis graminum), complete genome`</br>
 `>NC_002977.6 Methylococcus capsulatus str. Bath, complete genome`</br></br>
-The headers above, are all valid.
+**The headers above, are all valid!**</br></br>
