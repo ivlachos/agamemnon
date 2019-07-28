@@ -1,14 +1,14 @@
 directories:
-  BINARIES: "../agamemnon/binaries"
+  BINARIES: ../agamemnon/binaries
   CONFIG_DIR: .
   CONTROL_INDEX: NA
   HOST_INDEX: NA
   INDEX_FASTQ: NA
-  PUFFERFISH_INDEX: ""
-  RESULTS: ""
-  SAMPLES_DIR: ""
-  SCRIPTS: "../agamemnon/scripts"
-  TAXONOMY_FILE: "../agamemnon/Taxonomy"
+  PUFFERFISH_INDEX: 
+  RESULTS: 
+  SAMPLES_DIR: 
+  SCRIPTS: ../agamemnon/scripts
+  TAXONOMY_FILE: ../agamemnon/Taxonomy
 parameters:
   ALGORITHM: agamemnon
   CLEAR_ALL: 'False'
