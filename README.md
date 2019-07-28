@@ -88,8 +88,8 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 
 **MODE 1:** Quantification of microbial genomes in **Shotgun Metagenomics/Metatranscriptomics** NGS samples.</br>
 
-<p align="justify">In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes in Shotgun Metagenomics/Metatranscriptomics samples and thus, the parameters CONTROL_INDEX, HOST_INDEX, INDEX_FASTQ, HOST_SAM and TYPE are not mandatory for the execution of the pipeline. You can leave the default "NA" value on them. Even if you set a different value, it wont make any difference in the execution process.</p></br>
+In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes in Shotgun Metagenomics/Metatranscriptomics samples and thus, the parameters CONTROL_INDEX, HOST_INDEX, INDEX_FASTQ, HOST_SAM and TYPE are not mandatory for the execution of the pipeline. You can leave the default "NA" value on them. Even if you set a different value, it wont make any difference in the execution process.</br>
 
 **MODE 2:** Quantification of microbial genomes in **host-specific RNA/DNA** NGS samples.</br>
 
-<p align="justify">In MODE 2, at first, AGAMEMNON will align the sequencing reads against the host's genome/transcriptome using HISAT2, then against the selected control index (default: phix genome) and finally it will quantify the abundances of microbial genomes in the remaining (unmapped) reads.</p></br>
+<p align="justify">In MODE 2, at first, AGAMEMNON will align the sequencing reads against the host's genome/transcriptome using HISAT2, then against the selected control index (default: phix genome) and finally, it will quantify the abundances of microbial genomes in the remaining (unmapped) reads.</p></br>
