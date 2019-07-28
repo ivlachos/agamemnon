@@ -88,7 +88,7 @@ RUN wget http://ccb.jhu.edu/software/hisat2/dl/hisat2-2.1.0-Linux_x86_64.zip && 
 
 
 ### AGAMEMNON github repo ###
-RUN git clone https://github.com/ivlachos/agamemnon.git && \
+RUN git clone https://github.com/ivlachos/agamemnon.git
 
 
 ### Create directories - Move files ###
