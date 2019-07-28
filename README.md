@@ -42,6 +42,6 @@ The values of the **config.json** file, are listed below:</br></br>
 
 **Fill the values above, save the config.json file and start building an index using the following command:**</br></br>
 **`bash index.sh config.json`**</br></br>
-After the index building is done, you will end-up with 10 files in the output directory you previously set in the **config.json** file. Those files are: ctable.bin, eqtable.bin, info.json, mphf.bin, pos.bin, rank.bin, refAccumLenghts.bin, reflengths.bin, refseq.bin and seq.bin!
+After the index building is done, you will end-up with 10 files in the output directory you previously set in the **config.json** file. Those files are: ctable.bin, eqtable.bin, info.json, mphf.bin, pos.bin, rank.bin, refAccumLenghts.bin, reflengths.bin, refseq.bin and seq.bin!</br></br>
 
-
+**Please note that the actual index directory will be a folder inside the output directory you set with a name following the pattern "fastafilename_ksize_fixed.puffidx"**</br></br>
