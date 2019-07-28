@@ -71,8 +71,8 @@ startMessage(len(SAMPLES))
 
 rule all:
 	input:
-		expand("{results}/{sample}/taxonomic_ranks/results.tab", results = config["directories"]["RESULTS"], sample = SAMPLES),
-		expand("{results}/final/all/{sample}.tab", config["directories"]["RESULTS"], sample = SAMPLES)
+		expand("%s/{sample}/taxonomic_ranks/results.tab" % (config["directories"]["RESULTS"]), sample = SAMPLES),
+		expand("%s/final/all/{sample}.tab" % (config["directories"]["RESULTS"]), sample = SAMPLES)
 
 onsuccess:
 	if config["parameters"]["CLEAR_ALL"].lower() == "true":
