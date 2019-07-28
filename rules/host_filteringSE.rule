@@ -9,15 +9,15 @@ if config["parameters"]["MODE"] == "2":
 			M = "%s/{sample}%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"])
 		params:
 			host_idx = config["directories"]["HOST_INDEX"],
-			un_out = "results/{sample}/host",
+			un_out = "%s/{sample}/host" % (config["directories"]["RESULTS"]),
 			path = "%s/hisat2-2.1.0" % (config["directories"]["BINARIES"]),
 			spliced = '' if config["parameters"]["TYPE"] == 'RNA' else '--no-spliced-alignment'
 		output:
-			sam = "results/{sample}/host/{sample}.sam" if config["parameters"]["HOST_SAM"] == "True" \
-				else temp("results/{sample}/host/{sample}.sam"),
-			unmapped = "results/{sample}/host/un-seqs.fq.gz"
+			sam = "%s/{sample}/host/{sample}.sam" % (config["directories"]["RESULTS"]) if config["parameters"]["HOST_SAM"] == "True" \
+				else temp("%s/{sample}/host/{sample}.sam" % (config["directories"]["RESULTS"])),
+			unmapped = "%s/{sample}/host/un-seqs.fq.gz" % (config["directories"]["RESULTS"])
 		log:
-			"results/{sample}/logs/hisat2_host.log"
+			"%s/{sample}/logs/hisat2_host.log" % (config["directories"]["RESULTS"])
 		threads:
 			config["resources"]["TPS"]
 		message:
