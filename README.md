@@ -58,5 +58,8 @@ After the index building is done, you will end-up with 10 files in the output di
 
 ___
 
-**_QUANTIFYING MICROBIAL GENOMES_**</br></br>
+**_QUANTIFYING MICROBIAL GENOMES_**</br>
+
+**MODE 1:** Quantification of microbial genomes in Metagenomics/Metatranscriptomics NGS samples.</br>
+
 
