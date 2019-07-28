@@ -100,3 +100,10 @@ In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes 
 where the <multi_fasta_file.fa> is the multi-FASTA file previously used to build the Pufferfish index.</br>
 This command will both download the needed NCBI taxonomy files and find the TaxIDs for every Accession Number present in the multi-FASTA file.</br>
 
+**Finally, to execute AGAMEMNON, use the following command:**</br>
+**`snakemake --snakefile ../agamemnon/AGAMEMNON --cores <N> --resources mem_mb=<T>`**</br>
+
+In the above command, "AGAMEMNON" is the snakemake file in the ../agamemnon/ directory, "--cores" refers to the maximum number of threads allowed to be used by AGAMEMNON and "mem_mb" refers to the maximum amount of RAM memory **(in MB)** allowed to be alocated to AGAMEMNON.</br>
+
+Using the parameters "--cores", "mem_mb" and "TPS" (in the config.yml) file, AGAMEMNON will make the best out of the available resources.</br>
+
