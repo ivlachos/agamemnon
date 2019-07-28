@@ -60,6 +60,10 @@ ___
 
 **_QUANTIFYING MICROBIAL GENOMES_**</br>
 
+In order to quantify the abundaces of microbial genomes using AGAMEMNON, you first need to fill the parameters of a configuration file (**config.yml**).</br>
+
+AGAMEMNON has three basic modes, some parameters are needed for all modes while others for specific modes only.</br>
+
 **MODE 1:** Quantification of microbial genomes in Metagenomics/Metatranscriptomics NGS samples.</br>
 
 
