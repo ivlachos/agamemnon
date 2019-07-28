@@ -66,24 +66,24 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 
 | Parameters | Description |
 | :--- | :--- |
-| BINARIES | Binary folder directory (default: ../agamemnon-master/binaries) |
-| CONFIG_DIR | A directory used internally by snakemake (default "." - current directory) |
-| CONTROL_INDEX | Directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: phix) |
+| BINARIES | Binary folder directory (default: ../agamemnon/binaries) - do not edit |
+| CONFIG_DIR | A directory used internally by snakemake (default ".") - do not edit |
+| CONTROL_INDEX | Directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: ../agamemnon/phix_index/phix) |
 | HOST_INDEX | Directory of the HISAT2 host index, i.e. human, mouse etc. |
-| INDEX_FASTQ | Directory of the index fastq file (for droplet-based single-cell samples only) |
-| PUFFERFISH_INDEX | Directory of the pufferfish index) |
+| INDEX_FASTQ | Directory of the index fastq file (for single-cell samples only) |
+| PUFFERFISH_INDEX | Directory of the pufferfish index |
 | RESULTS | Directory to write the results |
 | SAMPLES_DIR | Directory of NGS samples |
-| SCRIPTS | Directory of scripts |
-| TAXONOMY_FILE | Directory of the NCBI taxonomy files |
-| ALGORITHM | Default: "agamemnon" (do not edit) |
-| CLEAR_ALL | Whether to clear everything except quantification results ("True") or not "False" - default: "True" |
-| FILES_EXT | Samples files extension, i.e. .fq, .fastq etc - default: ".fq" |
-| HOST_SAM | Whether to keep the SAM files produced by aligning reads with HISAT2 against host's genome/transcriptome ("True") or not ("False") - default: "False"|
-| MODE | Mode in which AGAMEMNON will be executed ("1" or "2") - default: "1"  |
-| STRATEGY | "PE" for paired-end samples or "SE" for single-end samples |
-| TYPE | "RNA" or "DNA", if "DNA" is selected, HISAT2 will be executed with the parameter --no-spliced-alignment |
-| MEM_MB | Default: 1 (do not edit) |
+| SCRIPTS | Directory of scripts (default: ../agamemnon/scripts) - do not edit |
+| TAXONOMY_FILE | Directory of the NCBI taxonomy files (default: ../agamemnon/Taxonomy) - do not edit |
+| ALGORITHM | Default: agamemnon - do not edit |
+| CLEAR_ALL | Whether to clear everything except quantification results ("True") or not ("False") - default: "True" |
+| FILES_EXT | Samples files extension, i.e. .fq, .fastq etc - (default: ".fq") |
+| HOST_SAM | Whether to keep the SAM files produced by aligning reads with HISAT2 against host's genome/transcriptome ("True") or not ("False") - (default: "False") |
+| MODE | Mode in which AGAMEMNON will be executed (1 or 2) - (default: 1)  |
+| STRATEGY | "PE" for paired-end samples or "SE" for single-end samples - (default: PE) |
+| TYPE | RNA or DNA, if DNA is selected, HISAT2 will be executed with the parameter --no-spliced-alignment (default: RNA) |
+| MEM_MB | Default: 1 - (do not edit) |
 | TPS | Number of threads to be used **per sample** - default: 8 |</br>
 
 **MODE 1:** Quantification of microbial genomes in **Shotgun Metagenomics/Metatranscriptomics** NGS samples.</br>
