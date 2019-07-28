@@ -20,4 +20,7 @@ For example:</br>
 `>NC_002977.6 Methylococcus capsulatus str. Bath, complete genome`</br></br>
 **The headers above, are all valid!**</br></br>
 We also offer a set of ready-to-use microbial references (see papers Methods for further information) which you can download following this link [link goes here]!</br></br>
-To start building an index, navigate to the **../binaries/pufferfish/** directory and open the config.json file with a text editor.</br></br>
+To start building an index, first navigate to the **../binaries/pufferfish/** directory and open the config.json file with a text editor.</br></br>
+| Value | Description |
+| ----- | ----------- |
+| ksize | The k-mer size to use |
