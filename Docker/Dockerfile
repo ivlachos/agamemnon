@@ -88,39 +88,33 @@ RUN wget http://ccb.jhu.edu/software/hisat2/dl/hisat2-2.1.0-Linux_x86_64.zip && 
 
 
 ### AGAMEMNON github repo ###
-RUN mkdir AGAMEMNON && \
-	cd AGAMEMNON && \
-	git clone  && \
-	cd agamemnon && \
-	git checkout develop && \
-	cp -a /home/AGAMEMNON/agamemnon/. /home/AGAMEMNON/ && \
-	rm -rf /home/AGAMEMNON/agamemnon
+RUN git clone https://github.com/ivlachos/agamemnon.git && \
 
 
 ### Create directories - Move files ###
-RUN mkdir /home/AGAMEMNON/binaries && \
-	mkdir /home/AGAMEMNON/binaries/pufferfish && \
-	mkdir /home/AGAMEMNON/binaries/TwoPaco && \
-	mkdir /home/AGAMEMNON/binaries/hisat2-2.1.0 && \
-	cp -a /home/pufferfish/. /home/AGAMEMNON/binaries/pufferfish && \
-	cp -a /home/TwoPaCo/. /home/AGAMEMNON/binaries/TwoPaCo && \
-	cp -a /home/hisat2-2.1.0/. /home/AGAMEMNON/binaries/hisat2-2.1.0 && \
+RUN mkdir /home/agamemnon/binaries && \
+	mkdir /home/agamemnon/binaries/pufferfish && \
+	mkdir /home/agamemnon/binaries/TwoPaCo && \
+	mkdir /home/agamemnon/binaries/hisat2-2.1.0 && \
+	cp -a /home/pufferfish/. /home/agamemnon/binaries/pufferfish && \
+	cp -a /home/TwoPaCo/. /home/agamemnon/binaries/TwoPaCo && \
+	cp -a /home/hisat2-2.1.0/. /home/agamemnon/binaries/hisat2-2.1.0 && \
 	rm -rf pufferfish  && \
 	rm -rf TwoPaCo  && \
 	rm -rf hisat2-2.1.0
 
 
 ### Give permission to scripts ###
-RUN chmod +x /home/AGAMEMNON/scripts/downloadTaxonomy.sh && \
-	chmod +x /home/AGAMEMNON/scripts/editYaml.py && \
-	chmod +x /home/AGAMEMNON/scripts/getTaxonomy.py && \
-	chmod +x /home/AGAMEMNON/scripts/indexSize.py && \
-	chmod +x /home/AGAMEMNON/scripts/single_cell-demultiplex.py && \
-	chmod +x /home/AGAMEMNON/scripts/accessions2taxids.py && \
-	chmod +x /home/AGAMEMNON/scripts/taxonomy.sh
+RUN chmod +x /home/agamemnon/scripts/downloadTaxonomy.sh && \
+	chmod +x /home/agamemnon/scripts/editYaml.py && \
+	chmod +x /home/agamemnon/scripts/getTaxonomy.py && \
+	chmod +x /home/agamemnon/scripts/indexSize.py && \
+	chmod +x /home/agamemnon/scripts/single_cell-demultiplex.py && \
+	chmod +x /home/agamemnon/scripts/accessions2taxids.py && \
+	chmod +x /home/agamemnon/scripts/taxonomy.sh
 
-RUN sed -i 's#"pufferfish":"/home/pufferfish",#"pufferfish":"/home/AGAMEMNON/binaries/pufferfish",#g' /home/AGAMEMNON/binaries/pufferfish/config.json && \
-	sed -i 's#"twopaco":"/home/TwoPaCo",#"twopaco":"/home/AGAMEMNON/binaries/TwoPaCo",#g' /home/AGAMEMNON/binaries/pufferfish/config.json
+RUN sed -i 's#"pufferfish":"/home/pufferfish",#"pufferfish":"/home/agamemnon/binaries/pufferfish",#g' /home/agamemnon/binaries/pufferfish/config.json && \
+	sed -i 's#"twopaco":"/home/TwoPaCo",#"twopaco":"/home/agamemnon/binaries/TwoPaCo",#g' /home/agamemnon/binaries/pufferfish/config.json
 
 RUN ldconfig
 
