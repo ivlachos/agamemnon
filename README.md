@@ -39,3 +39,5 @@ To start building an index, first navigate to the **../binaries/pufferfish/** di
 
 **Fill the values above, save the config.json file and start building an index using the following command:**</br></br>
 **`bash index.sh config.json`**</br></br>
+
+
