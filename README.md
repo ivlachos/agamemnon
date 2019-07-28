@@ -19,4 +19,4 @@ For example:</br>
 `>NC_004061.1 Buchnera aphidicola str. Sg (Schizaphis graminum), complete genome`</br>
 `>NC_002977.6 Methylococcus capsulatus str. Bath, complete genome`</br></br>
 **The headers above, are all valid!**</br></br>
-ok lets start
+We also offer a set of ready-to-use microbial references (see papers Methods for further information) which you can download following this link [link goes here]!
