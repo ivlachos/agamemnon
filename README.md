@@ -13,9 +13,9 @@ AGAMEMNON version 0.1.0
 ### Documentation
 The first step before start quantifying microbial genomes in NGS samples, is to build an index using the reference genomes of interest.</br></br>
 To build an index, you need a multi-FASTA file containing microbial/viral genomes.</br><br>
-**NOTE:** The headers of the FASTA file need to start with the genomes NCBI Accession Number followed by anything else.</br>
+**NOTE:** The headers of the FASTA file need to start with the genomes NCBI Accession Number followed by anything else.</br></br>
 For example:</b>
->NC_013791.2 Bacillus pseudofirmus OF4, complete genome</br>
->NC_004061.1 Buchnera aphidicola str. Sg (Schizaphis graminum), complete genome</br>
->NC_002977.6 Methylococcus capsulatus str. Bath, complete genome</br></br>
+* >NC_013791.2 Bacillus pseudofirmus OF4, complete genome</br>
+* >NC_004061.1 Buchnera aphidicola str. Sg (Schizaphis graminum), complete genome</br>
+* >NC_002977.6 Methylococcus capsulatus str. Bath, complete genome</br></br>
 The headers above, are all valid.
