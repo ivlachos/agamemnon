@@ -38,17 +38,17 @@ The parameters of the **config.json** file, are listed below:</br></br>
 | Parameters | Description |
 | :--- | :--- |
 | ksize | The k-mer size to use (default: 27) |
-| pufferfish | pufferfish directory (do not edit) |
-| twopaco | twopaco directory (do not edit) |
-| is_input_a_directory_to_fasta_files | whether you have a set of FASTA files (true) or a single multi-FASTA file (false) (default: false) |
+| pufferfish | Pufferfish directory (do not edit) |
+| twopaco | TwoPaCo directory (do not edit) |
+| is_input_a_directory_to_fasta_files | Whether you have a set of FASTA files (true) or a single multi-FASTA file (false) (default: false) |
 | input_fasta | Directory to the multi-FASTA file |
 | output_dir | Output directory to write the index |
 | tmp_dir | Temporary folder to use while building the index (has to exist) |
 | num_of_threads | Number of threads to use while building the index |
-| twopaco_filter_size_microbiome | default: 37 (do not change) |
-| twopaco_filter_size_humangenome | default: 36 (irrelevant for AGAMEMNON) |
-| twopaco_filter_size_humantxome | default: 30 (irrelevant for AGAMEMNON) |
-| twopaco_filter_size | default: 37 (do not change) |</br>
+| twopaco_filter_size_microbiome | Default: 37 (do not change) |
+| twopaco_filter_size_humangenome | Default: 36 (irrelevant for AGAMEMNON) |
+| twopaco_filter_size_humantxome | Default: 30 (irrelevant for AGAMEMNON) |
+| twopaco_filter_size | Default: 37 (do not change) |</br>
 
 **Fill the parameters above, save the config.json file and start building your index using the following command:**</br></br>
 **`bash index.sh config.json`**</br></br>
@@ -66,25 +66,25 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 
 | Parameters | Description |
 | :--- | :--- |
-| BINARIES | binary folder directory (default: ../agamemnon-master/binaries) |
-| CONFIG_DIR | a directory used internally by snakemake (default '.' - current directory) |
-| CONTROL_INDEX | directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: phix) |
-| HOST_INDEX | directory of the HISAT2 host index, i.e. human, mouse etc. |
-| INDEX_FASTQ | directory of the index fastq file (for droplet-based single-cell samples only) |
-| PUFFERFISH_INDEX | directory of the pufferfish index) |
-| RESULTS | directory of the results |
-| SAMPLES_DIR | directory of samples |
-| SCRIPTS | directory of scripts |
-| TAXONOMY_FILE | directory of NCBI taxonomy files |
-| ALGORITHM | default: "agamemnon" (do not edit) |
-| CLEAR_ALL | whether to clear everything except quantification results ("True") or not "False" - default: "True" |
-| FILES_EXT | sample files extension, i.e. .fq, .fastq etc. - default: .fq |
-| HOST_SAM | whether to keep the SAM files produced by aligning reads with HISAT2 against host's genome/transcriptome ("True") or not ("False") - default: "False"|
-| MODE | mode in which AGAMEMNON will be executed - "1"  |
+| BINARIES | Binary folder directory (default: ../agamemnon-master/binaries) |
+| CONFIG_DIR | A directory used internally by snakemake (default '.' - current directory) |
+| CONTROL_INDEX | Directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: phix) |
+| HOST_INDEX | Directory of the HISAT2 host index, i.e. human, mouse etc. |
+| INDEX_FASTQ | Directory of the index fastq file (for droplet-based single-cell samples only) |
+| PUFFERFISH_INDEX | Directory of the pufferfish index) |
+| RESULTS | Directory of the results |
+| SAMPLES_DIR | Directory of samples |
+| SCRIPTS | Directory of scripts |
+| TAXONOMY_FILE | Directory of NCBI taxonomy files |
+| ALGORITHM | Default: "agamemnon" (do not edit) |
+| CLEAR_ALL | Whether to clear everything except quantification results ("True") or not "False" - default: "True" |
+| FILES_EXT | Sample files extension, i.e. .fq, .fastq etc. - default: .fq |
+| HOST_SAM | Whether to keep the SAM files produced by aligning reads with HISAT2 against host's genome/transcriptome ("True") or not ("False") - default: "False"|
+| MODE | Mode in which AGAMEMNON will be executed - "1"  |
 | STRATEGY | "PE" for paired-end samples or "SE" for single-end samples |
 | TYPE | "RNA" or "DNA", if "DNA" is selected, HISAT2 will be executed with the parameter --no-spliced-alignment |
-| MEM_MB | default: 1 (do not edit) |
-| TPS | number of threads to be used **per sample** - default: 8 |</br>
+| MEM_MB | Default: 1 (do not edit) |
+| TPS | Number of threads to be used **per sample** - default: 8 |</br>
 
 **MODE 1:** Quantification of microbial genomes in Metagenomics/Metatranscriptomics NGS samples.</br>
 
