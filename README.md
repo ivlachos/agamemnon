@@ -50,7 +50,8 @@ The parameters of the **config.json** file, are listed below:</br></br>
 | twopaco_filter_size_humantxome | Default: 30 (irrelevant for AGAMEMNON) |
 | twopaco_filter_size | Default: 37 (do not change) |</br>
 
-**Fill the parameters above, save the config.json file and start building your index using the following command:**</br></br>
+**Fill the parameters above, save the config.json file and start building your index using the following command:**</br>
+
 **`bash index.sh config.json`**</br></br>
 After the index building is done, you will end-up with 10 files in the output directory you previously set in the **config.json** file. Those files are: ctable.bin, eqtable.bin, info.json, mphf.bin, pos.bin, rank.bin, refAccumLenghts.bin, reflengths.bin, refseq.bin and seq.bin!</br>
 
@@ -94,12 +95,14 @@ In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes 
 
 <p align="justify">In MODE 2, at first, AGAMEMNON will align the sequencing reads against the host's genome/transcriptome using HISAT2, then against the selected control index (default: phix genome) and finally, it will quantify the abundances of microbial genomes in the remaining (unmapped) reads.</p></br></br>
 
-**After filling the parameters above, the second step before the execution of AGAMEMNON is to navigate to the ../agamemnon/scripts/ directory and run the following command:**</br></br>
+**After filling the parameters above, the second step before the execution of AGAMEMNON is to navigate to the ../agamemnon/scripts/ directory and run the following command:**</br>
+
 **`bash taxonomy.sh <multi_fasta_file.fa>`**</br>
 
 where the <multi_fasta_file.fa> is the multi-FASTA file previously used to build the Pufferfish index. This command will both download the needed NCBI taxonomy files and find the TaxIDs for every Accession Number present in the multi-FASTA file.</br>
 
 **Finally, to execute AGAMEMNON, use the following command:**</br>
+
 **`snakemake --snakefile ../agamemnon/AGAMEMNON --cores <N> --resources mem_mb=<T>`**</br>
 
 In the above command, "AGAMEMNON" is the snakemake file in the ../agamemnon/ directory, "--cores" refers to the maximum number of threads allowed to be used by AGAMEMNON and "mem_mb" refers to the maximum amount of RAM memory **(in MB)** allowed to be alocated to AGAMEMNON.</br>
