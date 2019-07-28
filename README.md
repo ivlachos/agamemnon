@@ -11,5 +11,5 @@ AGAMEMNON version 0.1.0
 * Executable files for Pufferfish, Cedar and HISAT2 are included in AGAMEMNON repository, no installation required.
 
 ### Documentation
-The first step before start quantifying microbial genomes it to build an index using the reference genomes of interest.\n
+The first step before start quantifying microbial genomes it to build an index using the reference genomes of interest.</br>
 ok oj ok 
