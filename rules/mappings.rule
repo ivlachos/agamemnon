@@ -4,18 +4,18 @@
 
 rule mapping:
 	input:
-		M1 = "results/{sample}/spikeins/un-conc-mate.1.fq.gz" if config["parameters"]["MODE"] == "2" \
+		M1 = "%s/{sample}/spikeins/un-conc-mate.1.fq.gz" % (config["directories"]["RESULTS"]) if config["parameters"]["MODE"] == "2" \
 			else "%s/{sample}_1%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"]),
-		M2 = "results/{sample}/spikeins/un-conc-mate.2.fq.gz" if config["parameters"]["MODE"] == "2" \
+		M2 = "%s/{sample}/spikeins/un-conc-mate.2.fq.gz" % (config["directories"]["RESULTS"]) if config["parameters"]["MODE"] == "2" \
 			else "%s/{sample}_2%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"])
 	params:
 		pufferfish_idx = config["directories"]["PUFFERFISH_INDEX"],
-		outDir = "results/{sample}/pufferfish/mappings.pam",
+		outDir = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"]),
 		path = "%s/pufferfish/build/src" % (config["directories"]["BINARIES"])
 	output:
-		puff_mappings = "results/{sample}/pufferfish/mappings.pam"
+		puff_mappings = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"])
 	log:
-		"results/{sample}/logs/pufferfish_mapping.log"
+		"%s/{sample}/logs/pufferfish_mapping.log" % (config["directories"]["RESULTS"])
 	threads:
 		config["resources"]["TPS"]
 	resources:
