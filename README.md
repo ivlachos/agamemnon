@@ -93,3 +93,8 @@ In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes 
 **MODE 2:** Quantification of microbial genomes in **host-specific RNA/DNA** NGS samples.</br>
 
 <p align="justify">In MODE 2, at first, AGAMEMNON will align the sequencing reads against the host's genome/transcriptome using HISAT2, then against the selected control index (default: phix genome) and finally, it will quantify the abundances of microbial genomes in the remaining (unmapped) reads.</p></br>
+
+**After filling the parameters above, the second step before the execution of AGAMEMNON is to navigate to the ../agamemnon/scripts/ directory and run the following command**</br></br>
+**`bash taxonomy.sh <multi_fasta_file.fa>`**</br>
+
+where the <multi_fasta_file.fa> is the multi-FASTA file used to build the Pufferfish index.
