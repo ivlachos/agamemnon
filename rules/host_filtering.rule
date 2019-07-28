@@ -10,16 +10,16 @@ if config["parameters"]["MODE"] == "2":
 			M2 = "%s/{sample}_2%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"])
 		params:
 			host_idx = config["directories"]["HOST_INDEX"],
-			un_out = "results/{sample}/host",
+			un_out = "%s/{sample}/host" % (config["directories"]["RESULTS"]),
 			path = "%s/hisat2-2.1.0" % (config["directories"]["BINARIES"]),
 			spliced = '' if config["parameters"]["TYPE"] == 'RNA' else '--no-spliced-alignment'
 		output:
-			sam = "results/{sample}/host/{sample}.sam" if config["parameters"]["HOST_SAM"] == "True" \
-				else temp("results/{sample}/host/{sample}.sam"),
-			unmapped1 = "results/{sample}/host/un-conc-mate.1.fq.gz",
-			unmapped2 = "results/{sample}/host/un-conc-mate.2.fq.gz"
+			sam = "%s/{sample}/host/{sample}.sam" % (config["directories"]["RESULTS"]) if config["parameters"]["HOST_SAM"] == "True" \
+				else temp("%s/{sample}/host/{sample}.sam" % (config["directories"]["RESULTS"])),
+			unmapped1 = "%s/{sample}/host/un-conc-mate.1.fq.gz" % (config["directories"]["RESULTS"]),
+			unmapped2 = "%s/{sample}/host/un-conc-mate.2.fq.gz" % (config["directories"]["RESULTS"])
 		log:
-			"results/{sample}/logs/hisat2_host.log"
+			"%s/{sample}/logs/hisat2_host.log" % (config["directories"]["RESULTS"])
 		threads:
 			config["resources"]["TPS"]
 		message:
