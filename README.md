@@ -25,3 +25,14 @@ To start building an index, first navigate to the **../binaries/pufferfish/** di
 | Value | Description |
 | ----- | ----------- |
 | ksize | The k-mer size to use |
+| pufferfish | edit |
+| twopaco | edit |
+| is_input_a_directory_to_fasta_files | edit |
+| input_fasta | edit |
+| output_dir | edit |
+| tmp_dir | edit |
+| num_of_threads | edit |
+| twopaco_filter_size_microbiome | edit |
+| twopaco_filter_size_humangenome | edit |
+| twopaco_filter_size_humantxome | edit |
+| twopaco_filter_size | edit |
