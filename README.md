@@ -23,7 +23,7 @@ We also offer a set of ready-to-use microbial references (see papers Methods for
 To start building an index, first navigate to the **../binaries/pufferfish/** directory and open the config.json file with a text editor.</br></br>
 
 | Value | Description |
-| ----- | ----------- |
+| :--- | :--- |
 | ksize | The k-mer size to use (default: 27) |
 | pufferfish | pufferfish directory (do not edit) |
 | twopaco | twopaco directory (do not edit) |
