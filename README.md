@@ -12,3 +12,4 @@ AGAMEMNON version 0.1.0
 
 ### Documentation
 The first step before start quantifying microbial genomes it to build an index using the reference genomes of interest.
+ok oj ok 
