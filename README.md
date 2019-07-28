@@ -7,6 +7,6 @@ AGAMEMNON version 0.1.0
 ### Dependencies
 * Snakemake version >= 3.7
 * R version >= 3.3
-* shiny >= 1.0.5
+* Shiny R package >= 1.0.5
 
 ### Documentation
