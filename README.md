@@ -97,4 +97,6 @@ In MODE 1, AGAMEMNON will directly quantify the abundances of microbial genomes 
 **After filling the parameters above, the second step before the execution of AGAMEMNON is to navigate to the ../agamemnon/scripts/ directory and run the following command**</br></br>
 **`bash taxonomy.sh <multi_fasta_file.fa>`**</br>
 
-where the <multi_fasta_file.fa> is the multi-FASTA file previously used to build the Pufferfish index.
+where the <multi_fasta_file.fa> is the multi-FASTA file previously used to build the Pufferfish index.</br>
+This command will both download the needed NCBI taxonomy files and find the TaxIDs for every Accession Number present in the multi-FASTA file.</br>
+
