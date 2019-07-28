@@ -4,7 +4,7 @@ AGAMEMNON version 0.1.0
 ### What is AGAMEMNON?
 ```AGAMEMNON is a comprehensive A-to-Z framework for the analysis of shotgun metagenomic/metatranscriptomic and host-specific RNA/DNA samples, enabling microbial quantification, differential abundance analyses and numerous visualizations.```
 
----
+___
 
 ### Dependencies
 * Snakemake version >= 3.7
@@ -15,6 +15,8 @@ AGAMEMNON version 0.1.0
 ___
 
 ### Documentation
+**_BUILDING AN INDEX_**</br>
+
 The first step before start quantifying microbial genomes in NGS samples, is to build an index using the reference genomes of interest.</br>
 
 To build an index, you need a multi-FASTA file containing microbial/viral genomes.</br>
@@ -29,7 +31,6 @@ For example:</br>
 **The headers above, are all valid!**</br></br>
 We also offer a set of ready-to-use microbial references (see papers Methods for further information) which you can download following this link [link goes here]!</br>
 
-**_BUILDING AN INDEX_**</br></br>
 To start building an index, first navigate to the **../binaries/pufferfish/** directory and open the **config.json** file with a text editor.</br></br>
 
 The values of the **config.json** file, are listed below:</br></br>
@@ -54,6 +55,8 @@ The values of the **config.json** file, are listed below:</br></br>
 After the index building is done, you will end-up with 10 files in the output directory you previously set in the **config.json** file. Those files are: ctable.bin, eqtable.bin, info.json, mphf.bin, pos.bin, rank.bin, refAccumLenghts.bin, reflengths.bin, refseq.bin and seq.bin!</br>
 
 **Please note** that the actual index directory will be a folder inside the output directory you set with a name following the pattern "fastafilename_ksize_fixed.puffidx"</br>
+
+___
 
 **_QUANTIFYING MICROBIAL GENOMES_**</br></br>
 
