@@ -27,7 +27,7 @@ To start building an index, first navigate to the **../binaries/pufferfish/** di
 | ksize | The k-mer size to use (default: 27) |
 | pufferfish | pufferfish directory (do not edit) |
 | twopaco | twopaco directory (do not edit) |
-| is_input_a_directory_to_fasta_files | whether you have a set of FASTA files (true) or a multi-FASTA file (false) (default: false) |
+| is_input_a_directory_to_fasta_files | whether you have a set of FASTA files (true) or a single multi-FASTA file (false) (default: false) |
 | input_fasta | Directory to the multi-FASTA file |
 | output_dir | Output directory to write the index |
 | tmp_dir | Temporary folder to use while building the index (has to exist) |
