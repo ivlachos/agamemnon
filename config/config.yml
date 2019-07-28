@@ -1,18 +1,18 @@
 directories:
-  BINARIES: 
+  BINARIES: "../agamemnon-master/binaries"
   CONFIG_DIR: .
-  CONTROL_INDEX: 
-  HOST_INDEX: 
+  CONTROL_INDEX: NA
+  HOST_INDEX: NA
   INDEX_FASTQ: NA
-  PUFFERFISH_INDEX: 
-  RESULTS: 
-  SAMPLES_DIR: 
-  SCRIPTS: 
-  TAXONOMY_FILE: 
+  PUFFERFISH_INDEX: ""
+  RESULTS: ""
+  SAMPLES_DIR: ""
+  SCRIPTS: "../agamemnon-master/scripts"
+  TAXONOMY_FILE: "../agamemnon-master/Taxonomy"
 parameters:
   ALGORITHM: agamemnon
   CLEAR_ALL: 'False'
-  FILES_EXT: 
+  FILES_EXT: ".fq"
   HOST_SAM: 'False'
   MODE: '1'
   STRATEGY: PE
