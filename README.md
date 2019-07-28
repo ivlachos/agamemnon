@@ -21,7 +21,9 @@ For example:</br>
 **The headers above, are all valid!**</br></br>
 We also offer a set of ready-to-use microbial references (see papers Methods for further information) which you can download following this link [link goes here]!</br></br>
 **_BUILDING AN INDEX_**</br></br>
-To start building an index, first navigate to the **../binaries/pufferfish/** directory and open the config.json file with a text editor.</br></br>
+To start building an index, first navigate to the **../binaries/pufferfish/** directory and open the **config.json** file with a text editor.</br></br>
+
+The values of the **config.json** file, are listed below:</br></br>
 
 | Value | Description |
 | :--- | :--- |
