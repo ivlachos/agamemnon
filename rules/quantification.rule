@@ -4,15 +4,15 @@
 
 rule microbial_quantification:
 	input:
-		puffOut = "results/{sample}/pufferfish/mappings.pam"
+		puffOut = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"])
 	params:
 		index = "none",
-		outDir = "results/{sample}/cedar/quant.sf",
+		outDir = "%s/{sample}/cedar/quant.sf" % (config["directories"]["RESULTS"]),
 		path = "%s/pufferfish/build/src" % (config["directories"]["BINARIES"])
 	output:
-		quant = "results/{sample}/cedar/quant.sf"
+		quant = "%s/{sample}/cedar/quant.sf" % (config["directories"]["RESULTS"])
 	log:
-		"results/{sample}/logs/cedar_quantification.log"
+		"%s/{sample}/logs/cedar_quantification.log" % (config["directories"]["RESULTS"])
 	threads:
 		config["resources"]["TPS"]
 	message:
