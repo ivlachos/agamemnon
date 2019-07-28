@@ -24,15 +24,15 @@ To start building an index, first navigate to the **../binaries/pufferfish/** di
 
 | Value | Description |
 | ----- | ----------- |
-| ksize | The k-mer size to use |
-| pufferfish | edit |
-| twopaco | edit |
-| is_input_a_directory_to_fasta_files | edit |
-| input_fasta | edit |
-| output_dir | edit |
-| tmp_dir | edit |
-| num_of_threads | edit |
-| twopaco_filter_size_microbiome | edit |
-| twopaco_filter_size_humangenome | edit |
-| twopaco_filter_size_humantxome | edit |
-| twopaco_filter_size | edit |
+| ksize | The k-mer size to use (default: 27) |
+| pufferfish | pufferfish directory (do not edit) |
+| twopaco | twopaco directory (do not edit) |
+| is_input_a_directory_to_fasta_files | whether you have a set of FASTA files (true) or a multi-FASTA file (false) (default: false) |
+| input_fasta | Directory to the multi-FASTA file |
+| output_dir | Output directory to write the index |
+| tmp_dir | Temporary folder to use while building the index (has to exist) |
+| num_of_threads | Number of threads to use while building the index |
+| twopaco_filter_size_microbiome | defualt: 37 (do not change) |
+| twopaco_filter_size_humangenome | defualt: 36 (irrelevant for AGAMEMNON) |
+| twopaco_filter_size_humantxome | defualt: 30 (irrelevant for AGAMEMNON) |
+| twopaco_filter_size | defualt: 37 (do not change) |
