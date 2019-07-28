@@ -5,16 +5,16 @@
 
 rule mappingSE:
 	input:
-		M = "results/{sample}/spikeins/un-seqs.fq.gz" if config["parameters"]["MODE"] == "2" \
+		M = "%s/{sample}/spikeins/un-seqs.fq.gz" % (config["directories"]["RESULTS"]) if config["parameters"]["MODE"] == "2" \
 			else "%s/{sample}%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"])
 	params:
 		pufferfish_idx = config["directories"]["PUFFERFISH_INDEX"],
-		outDir = "results/{sample}/pufferfish/mappings.pam",
+		outDir = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"]),
 		path = "%s/pufferfish/build/src" % (config["directories"]["BINARIES"])
 	output:
-		puff_mappings = "results/{sample}/pufferfish/mappings.pam"
+		puff_mappings = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"])
 	log:
-		"results/{sample}/logs/pufferfish_mapping.log"
+		"%s/{sample}/logs/pufferfish_mapping.log" % (config["directories"]["RESULTS"])
 	threads:
 		config["resources"]["TPS"]
 	resources:
