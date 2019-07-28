@@ -33,9 +33,9 @@ We also offer a set of ready-to-use microbial references (see papers Methods for
 
 To start building an index, first navigate to the **../binaries/pufferfish/** directory and open the **config.json** file with a text editor.</br></br>
 
-The values of the **config.json** file, are listed below:</br></br>
+The parameters of the **config.json** file, are listed below:</br></br>
 
-| Value | Description |
+| Parameters | Description |
 | :--- | :--- |
 | ksize | The k-mer size to use (default: 27) |
 | pufferfish | pufferfish directory (do not edit) |
@@ -50,7 +50,7 @@ The values of the **config.json** file, are listed below:</br></br>
 | twopaco_filter_size_humantxome | default: 30 (irrelevant for AGAMEMNON) |
 | twopaco_filter_size | default: 37 (do not change) |</br>
 
-**Fill the values above, save the config.json file and start building your index using the following command:**</br></br>
+**Fill the parameters above, save the config.json file and start building your index using the following command:**</br></br>
 **`bash index.sh config.json`**</br></br>
 After the index building is done, you will end-up with 10 files in the output directory you previously set in the **config.json** file. Those files are: ctable.bin, eqtable.bin, info.json, mphf.bin, pos.bin, rank.bin, refAccumLenghts.bin, reflengths.bin, refseq.bin and seq.bin!</br>
 
@@ -62,7 +62,29 @@ ___
 
 In order to quantify the abundaces of microbial genomes using AGAMEMNON, you first need to fill the parameters of a configuration file (**config.yml**).</br>
 
-AGAMEMNON has three basic modes, some parameters are needed for all modes while others for specific modes only.</br>
+The parameters of the **config.yml** file, are listed below:</br></br>
+
+| Parameters | Description |
+| :--- | :--- |
+| BINARIES | edit |
+| CONFIG_DIR | edit) |
+| CONTROL_INDEX | edit) |
+| HOST_INDEX | edit) |
+| INDEX_FASTQ | edit) |
+| PUFFERFISH_INDEX | edit) |
+| RESULTS | edit) |
+| SAMPLES_DIR | edit) |
+| SCRIPTS | edit) |
+| TAXONOMY_FILE | edit) |
+| ALGORITHM | edit) |
+| CLEAR_ALL | edit) |
+| FILES_EXT | edit) |
+| HOST_SAM | edit) |
+| MODE | edit) |
+| STRATEGY | edit) |
+| TYPE | edit) |
+| MEM_MB | edit) |
+| TPS | edit) |</br>
 
 **MODE 1:** Quantification of microbial genomes in Metagenomics/Metatranscriptomics NGS samples.</br>
 
