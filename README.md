@@ -21,7 +21,6 @@ For example:</br>
 `>NC_013791.2 Bacillus pseudofirmus OF4, complete genome`</br>
 `>NC_004061.1 Buchnera aphidicola str. Sg (Schizaphis graminum), complete genome`</br>
 `>NC_002977.6 Methylococcus capsulatus str. Bath, complete genome`</br>
-
 **The headers above, are all valid!**</br></br>
 We also offer a set of ready-to-use microbial references (see papers Methods for further information) which you can download following this link [link goes here]!</br>
 
