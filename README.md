@@ -36,5 +36,6 @@ To start building an index, first navigate to the **../binaries/pufferfish/** di
 | twopaco_filter_size_humangenome | default: 36 (irrelevant for AGAMEMNON) |
 | twopaco_filter_size_humantxome | default: 30 (irrelevant for AGAMEMNON) |
 | twopaco_filter_size | default: 37 (do not change) |</br></br>
+
 Fill the values above, save the config.json file and start building an index using the following command:</br></br>
 **bash index.sh config.json**</br></br>
