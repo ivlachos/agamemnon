@@ -127,9 +127,15 @@ The file must be named **phenotypes.tab** and needs to be a **tab-delimited** te
 
 The header of the first column must have the name **External ID**.</br>
 
-If you don't have phenotypic charasteristics for your samples, you need to provide at least a file including the first column with the samples names ("External ID") and a second column having a condition or random numbers. You can find an example of a phenotypes.tan file containing the minimum information inside the shinyApp folder.</br>
+If you don't have phenotypic charasteristics for your samples, you need to provide at least a file including the first column with the samples names ("External ID") and a second column having a condition or random numbers. You can find an example of a phenotypes.tab file containing the minimum information inside the shinyApp folder.</br>
 
 Having the **phenotypes.tab** file, you need to create a folder inside the /shinyApp directory with the name **phenoData** and move the phenotypes.tab file inside it.</br>
+
+Now that you have the **../agamemnon/shinyApp/all/{sample_name}.tab** and **../agamemnon/shinyApp/phenoData/phenotypes.tab** files ready, open a terminal and run the following command to run the Shiny Application:</br>
+
+**`R -e "shiny::runApp('<full_path_to_shinyApp_folder>', launch.browser=TRUE)"`**</br>
+
+This will open the shiny application using your default browser and you can start using the Application.</br>
 
 
 
