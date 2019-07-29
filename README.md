@@ -128,6 +128,8 @@ The file must be named **phenotypes.tab** and needs to be a **tab-delimited** te
 
 The header of the first column must have the name **External ID**.</br>
 
+**NOTE:** Samples names, are the file names inside the ../final/all directory without the .tab extension!
+
 If you don't have phenotypic charasteristics for your samples, you need to provide at least a file including the first column with the samples names ("External ID") and a second column having a condition or random numbers. You can find an example of a phenotypes.tab file containing the minimum information inside the shinyApp folder.</br>
 
 Having the **phenotypes.tab** file, you need to create a folder inside the /shinyApp directory with the name **phenoData** and move the phenotypes.tab file inside it.</br>
