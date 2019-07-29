@@ -131,12 +131,11 @@ If you don't have phenotypic charasteristics for your samples, you need to provi
 
 Having the **phenotypes.tab** file, you need to create a folder inside the /shinyApp directory with the name **phenoData** and move the phenotypes.tab file inside it.</br>
 
-Now that you have the **../agamemnon/shinyApp/all/{sample_name}.tab** and **../agamemnon/shinyApp/phenoData/phenotypes.tab** files ready, open a terminal and run the following command to run the Shiny Application:</br>
+Now that you have the **../agamemnon/shinyApp/all/{sample_name}.tab** and **../agamemnon/shinyApp/phenoData/phenotypes.tab** files ready, open a terminal and run the following command:</br>
 
 **`R -e "shiny::runApp('<full_path_to_shinyApp_folder>', launch.browser=TRUE)"`**</br>
 
-This will open the shiny application using your default browser and you can start using the Application.</br>
+This will open the Shiny Application using your default browser and you can start using the Application.</br>
 
-
-
+You can also run the Shiny Application using R Studio. Just open the ../agamemnon/shinyApp/ui.R file with Rstudio and press the button **"Run App"** that appears in the top right corner.
 
