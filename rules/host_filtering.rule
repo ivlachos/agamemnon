@@ -1,0 +1,32 @@
+##############################################################################
+######################## Host filtering using HISAT2 #########################
+##############################################################################
+
+
+if config["parameters"]["MODE"] == "2":
+	rule host_filtering:
+		input:
+			M1 = "%s/{sample}_1%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"]),
+			M2 = "%s/{sample}_2%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"])
+		params:
+			host_idx = config["directories"]["HOST_INDEX"],
+			un_out = "%s/{sample}/host" % (config["directories"]["RESULTS"]),
+			path = "%s/hisat2" % (config["directories"]["BINARIES"]),
+			spliced = '' if config["parameters"]["TYPE"] == 'RNA' else '--no-spliced-alignment'
+		output:
+			sam = "%s/{sample}/host/{sample}.sam" % (config["directories"]["RESULTS"]) if config["parameters"]["HOST_SAM"] == "True" \
+				else temp("%s/{sample}/host/{sample}.sam" % (config["directories"]["RESULTS"])),
+			unmapped1 = "%s/{sample}/host/un-conc-mate.1.fq.gz" % (config["directories"]["RESULTS"]),
+			unmapped2 = "%s/{sample}/host/un-conc-mate.2.fq.gz" % (config["directories"]["RESULTS"])
+		log:
+			"%s/{sample}/logs/hisat2_host.log" % (config["directories"]["RESULTS"])
+		threads:
+			config["resources"]["TPS"]
+		message:
+			"*** [Host filtering... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+		shell:
+			"""
+			{params.path}/./hisat2 -q -x {params.host_idx} --un-conc-gz {params.un_out} {params.spliced} -p {threads} -1 {input.M1} -2 {input.M2} -S {output.sam} 2> {log}
+			mv {params.un_out}/un-conc-mate.1 {params.un_out}/un-conc-mate.1.fq.gz
+			mv {params.un_out}/un-conc-mate.2 {params.un_out}/un-conc-mate.2.fq.gz
+			"""

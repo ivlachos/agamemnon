@@ -1,0 +1,16 @@
+##############################################################################
+#################### Move out.tab files to common location ###################
+##############################################################################
+
+
+rule move_results:
+	input:
+		inFile = "%s/{sample}/taxonomic_ranks/results.tab" % (config["directories"]["RESULTS"])
+	output:
+		outFile = "%s/final/all/{sample}.tab" % (config["directories"]["RESULTS"])
+	message:
+		"*** [Moving out.tab files to a common folder... ] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		cp {input.inFile} {output.outFile}
+		"""
