@@ -57,7 +57,7 @@ The parameters of the **config.yml** file, are listed below:</br></br>
 | :--- | :--- |
 | BINARIES | Binary folder directory (default: ../agamemnon/binaries) - do not edit |
 | CONFIG_DIR | A directory used internally by snakemake (default: ".") - do not edit |
-| CONTROL_INDEX | Directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: ../agamemnon/phix_index/phix) |
+| CONTROL_INDEX | Directory of the HISAT2 control index (i.e. spikeIn sequences, phix etc. - default: NA) |
 | HOST_INDEX | Directory of the HISAT2 host index, i.e. human, mouse etc. |
 | INDEX_FASTQ | Directory of the index fastq file (for single-cell samples only) |
 | PUFFERFISH_INDEX | Directory of the pufferfish index |
