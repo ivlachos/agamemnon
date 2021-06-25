@@ -1,14 +1,14 @@
 directories:
-  BINARIES: ../AGAMEMNON-v0.1.0/binaries
+  BINARIES: ../agamemnon/binaries
   CONFIG_DIR: .
-  CONTROL_INDEX: ../AGAMEMNON-v0.1.0/dump_test/hisat2_control_index/phix/phix
-  HOST_INDEX: ../AGAMEMNON-v0.1.0/dump_test/hisat2_control_index/phix/phix
+  CONTROL_INDEX: ../agamemnon/dump_test/hisat2_control_index/phix/phix
+  HOST_INDEX: ../agamemnon/dump_test/hisat2_control_index/phix/phix
   INDEX_FASTQ: NA
-  PUFFERFISH_INDEX: ../AGAMEMNON-v0.1.0/dump_test/puff_index
-  RESULTS: ../AGAMEMNON-v0.1.0/results
-  SAMPLES_DIR: ../AGAMEMNON-v0.1.0/dump_test/dataset
-  SCRIPTS: ../AGAMEMNON-v0.1.0/scripts
-  TAXONOMY_FILE: ../AGAMEMNON-v0.1.0/Taxonomy/
+  PUFFERFISH_INDEX: ../agamemnon/dump_test/puff_index
+  RESULTS: ../agamemnon/results
+  SAMPLES_DIR: ../agamemnon/dump_test/dataset
+  SCRIPTS: ../agamemnon/scripts
+  TAXONOMY_FILE: ../agamemnon/Taxonomy/
 parameters:
   ALGORITHM: agamemnon
   CLEAR_ALL: 'False'
