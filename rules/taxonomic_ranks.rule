@@ -1,0 +1,21 @@
+##############################################################################
+######################### Taxonomic ranks calculation ########################
+##############################################################################
+
+
+rule taxonomic_ranks:
+	input:
+		quantFile = "%s/{sample}/cedar/quant.sf" % (config["directories"]["RESULTS"])
+	params:
+		taxonomy = config["directories"]["TAXONOMY_FILE"],
+		scriptsDir = config["directories"]["SCRIPTS"],
+		outDir = "%s/{sample}/taxonomic_ranks" % (config["directories"]["RESULTS"]),
+		algorithm = config["parameters"]["ALGORITHM"]
+	output:
+		out = "%s/{sample}/taxonomic_ranks/results.tab" % (config["directories"]["RESULTS"])
+	message:
+		"*** [Calculating Taxonomic ranks... | Threads: 1] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		{params.scriptsDir}/./getTaxonomy.py -qf {input.quantFile} -tfd {params.taxonomy} -al {params.algorithm} -od {params.outDir}
+		"""

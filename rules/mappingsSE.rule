@@ -1,0 +1,29 @@
+ 
+##############################################################################
+############ Quantification of Microbial fragments using Pufferfish ##########
+##############################################################################
+
+rule mappingSE:
+	input:
+		M = "%s/{sample}/spikeins/un-seqs.fq.gz" % (config["directories"]["RESULTS"]) if config["parameters"]["MODE"] == "2" \
+			else "%s/{sample}%s" % (config["directories"]["SAMPLES_DIR"], config["parameters"]["FILES_EXT"])
+	params:
+		pufferfish_idx = config["directories"]["PUFFERFISH_INDEX"],
+		outDir = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"]),
+		path = "%s/pufferfish" % (config["directories"]["BINARIES"])
+	output:
+		puff_mappings = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"])
+	log:
+		"%s/{sample}/logs/pufferfish_mapping.log" % (config["directories"]["RESULTS"])
+	threads:
+		config["resources"]["TPS"]
+	resources:
+		mem_mb=config["resources"]["MEM_MB"]
+	message:
+		"*** [Mapping of microbial fragments... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		{params.path}/./pufferfish align -i {params.pufferfish_idx} --read {input.M} -p --threads {threads} --coverageScoreRatio 0.5 -o {params.outDir} 2> {log}
+		"""
+
+

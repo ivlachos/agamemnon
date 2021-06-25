@@ -1,0 +1,24 @@
+##############################################################################
+############# Quantification of Microbial fragments using Cedar ##############
+##############################################################################
+
+rule microbial_quantification:
+	input:
+		puffOut = "%s/{sample}/pufferfish/mappings.pam" % (config["directories"]["RESULTS"])
+	params:
+		index = "none",
+		outDir = "%s/{sample}/cedar/quant.sf" % (config["directories"]["RESULTS"]),
+		path = "%s/cedar" % (config["directories"]["BINARIES"])
+	output:
+		quant = "%s/{sample}/cedar/quant.sf" % (config["directories"]["RESULTS"])
+	log:
+		"%s/{sample}/logs/cedar_quantification.log" % (config["directories"]["RESULTS"])
+	threads:
+		config["resources"]["TPS"]
+	message:
+		"*** [Quantification of microbial fragments... | Threads: {threads}] - %s\n" % (str(time.strftime("%H:%M:%S")))
+	shell:
+		"""
+		{params.path}/./cedar --flat --minCnt 2 --puffMapperOut {input.puffOut} --output {params.outDir} --threads {threads} 2> {log}
+		"""
+
