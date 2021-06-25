@@ -1,0 +1,22 @@
+directories:
+  BINARIES: ../AGAMEMNON-v0.1.0/binaries
+  CONFIG_DIR: .
+  CONTROL_INDEX: ../AGAMEMNON-v0.1.0/dump_test/hisat2_control_index/phix/phix
+  HOST_INDEX: ../AGAMEMNON-v0.1.0/dump_test/hisat2_control_index/phix/phix
+  INDEX_FASTQ: NA
+  PUFFERFISH_INDEX: ../AGAMEMNON-v0.1.0/dump_test/puff_index
+  RESULTS: ../AGAMEMNON-v0.1.0/results
+  SAMPLES_DIR: ../AGAMEMNON-v0.1.0/dump_test/dataset
+  SCRIPTS: ../AGAMEMNON-v0.1.0/scripts
+  TAXONOMY_FILE: ../AGAMEMNON-v0.1.0/Taxonomy/
+parameters:
+  ALGORITHM: agamemnon
+  CLEAR_ALL: 'False'
+  FILES_EXT: .fq
+  HOST_SAM: 'False'
+  MODE: '1'
+  STRATEGY: PE
+  TYPE: DNA
+resources:
+  MEM_MB: 1
+  TPS: 4
