@@ -14,7 +14,7 @@ onstart:
 	print("\n[Calculating RAM needs per sample... ]\n")
 	shell("%s/./indexSize.py -id %s -od scripts/" % (config["directories"]["SCRIPTS"], config["directories"]["PUFFERFISH_INDEX"]))
 	print("\n[Editing configuration file...]\n")
-	shell("%s/./editYaml.py -yd %s -sd %s" % (config["directories"]["SCRIPTS"], '../AGAMEMNON-v0.1.0/config', '../AGAMEMNON-v0.1.0/scripts'))
+	shell("%s/./editYaml.py -yd %s -sd %s" % (config["directories"]["SCRIPTS"], '../agamemnon/config', '../agamemnon/scripts'))
 	shell("rm scripts/indexSize.tmp")
 
 if config["parameters"]["STRATEGY"] == "PE":
