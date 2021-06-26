@@ -47,5 +47,9 @@ chmod +x editYaml.py
 chmod +x getTaxonomy.py
 chmod +x indexSize.py
 chmod +x single_cell-demultiplex.py
+cd ../binaries
+chmod +x pufferfish/pufferfish
+chmod +x cedar/cedar
+chmod +x hisat2/
 
 #END
