@@ -6,13 +6,9 @@ AGAMEMNON v0.1.0: an Accurate metagenomics and metatranscriptomics quantificatio
 
 ___
 
-**NOTE:** Please download AGAMEMNON release v0.1.0 from the Releases tab!
-
-___
-
 ### Dependencies
 * Snakemake version >= 3.7
-* R version >= 3.3
+* R version >= 3.6
 * Shiny R package >= 1.0.5
 * Executable files for HISAT2 and Pufferfish are included in AGAMEMNON-v0.1.0 release, no installation required!
 ___
