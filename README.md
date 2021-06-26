@@ -6,6 +6,6 @@ AGAMEMNON v0.1.0: an Accurate metagenomics and metatranscriptomics quantificatio
 
 ___
 
-Installation instructions, documentation and a use-case scenario can all be accessed through AGAMEMNON's Wiki page. <br/>
+Installation instructions, documentation and a use-case scenario can all be accessed through [AGAMEMNON's Wiki](https://github.com/ivlachos/agamemnon/wiki) page. <br/>
 
-[WIKI](https://github.com/ivlachos/agamemnon/wiki)
+<br/>
