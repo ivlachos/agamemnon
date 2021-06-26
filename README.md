@@ -8,8 +8,6 @@ ___
 
 Installation instructions, documentation and a use-case scenario can all be accessed through [AGAMEMNON's Wiki](https://github.com/ivlachos/agamemnon/wiki) page. <br/>
 
-<br/>
-
 ___
 
 AGAMEMNON is currently under review in Genome biology!
